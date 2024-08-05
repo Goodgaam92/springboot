@@ -6,27 +6,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
+
     @Autowired
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    public List<User> allUsers(){
-    return userRepository.findAll();
-    };
-    public void add(User user){
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+    public void add(User user) {
         userRepository.save(user);
-    };
-    public void edit(User user){
+    }
+
+    public void edit(User user) {
         userRepository.save(user);
-    };
-    public void delete(int id){
+    }
+
+    public void delete(int id) {
         userRepository.deleteById(id);
-    };
-    public User getById(int id){
-      return userRepository.getOne(id);
-    };
+    }
+
+    public User getById(int id) {
+        return userRepository.getOne(id);
+    }
 }
